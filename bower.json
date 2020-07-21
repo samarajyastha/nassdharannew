@@ -1,0 +1,24 @@
+{
+  "name": "shiksha",
+  "authors": [
+    "Shrijan Shrestha <cizzan@gmail.com>"
+  ],
+  "description": "education website",
+  "main": "index",
+  "keywords": [
+    "shiksha"
+  ],
+  "license": "MIT",
+  "homepage": "index",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fontawesome": "^5.14.0"
+  }
+}
