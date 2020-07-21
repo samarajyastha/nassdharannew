@@ -1,6 +1,5 @@
 <?php get_header();?>
 
-
 <!-- slider-area-start -->
 <div class="slider-area">
 			<div class="slider-active owl-carousel owl-loaded owl-drag">

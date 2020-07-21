@@ -67,5 +67,54 @@ function load_js()
 }
 add_action('wp_enqueue_scripts','load_js');
 
+// Add menu support
+add_theme_support('menus');
 
+// Register menus
+register_nav_menus(
+    array(
+        'main-menu' => __('Main Menu', 'theme')
+    )
+);
+
+/**
+ * Register Custom Navigation Walker
+ */
+function register_navwalker(){
+	require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
+
+// Include custom navwalker
+require_once('bs4navwalker.php');
+
+//Logo support
+add_theme_support('custom-logo');
+
+function themename_custom_logo_setup()
+{
+    $defaults = array(
+        'height'      => 41,
+        'width'       => 242,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array('site-title', 'site-description'),
+    );
+    add_theme_support('custom-logo', $defaults);
+}
+add_action('after_setup_theme', 'themename_custom_logo_setup');
+
+function helpwp_custom_logo_output($html)
+{
+    $html = str_replace('custom-logo-link', 'navbar-brand', $html);
+    return $html;
+}
+add_filter('get_custom_logo', 'helpwp_custom_logo_output', 10);
+
+//Custom image size
+add_image_size('image_large', 700, 700, false);
+add_image_size('image_small', 400, 400, false);
+add_image_size('image_home', 1520, 750, true);
+add_image_size('image_academic_programs', 358, 239, true);
+add_image_size('logo', 242, 41, true);
 ?>
